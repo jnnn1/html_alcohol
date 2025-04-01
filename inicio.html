@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conoce sobre el Alcohol</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f7f7; /* Pastel muy claro */
+            color: #000000;
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: #a8d8ea; /* Azul pastel */
+            color: #2d4059;
+            padding: 25px;
+            text-align: center;
+            border-bottom: 3px solid #f8b195; /* Naranja pastel */
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 25px;
+            background-color: #f6f6f6;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+        }
+        
+        #home-btn {
+            background-color: #f8b195; /* Naranja pastel */
+            color: #2d4059;
+        }
+        
+        #search-btn-main {
+            background-color: #a8d8ea; /* Azul pastel */
+            color: #2d4059;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+        }
+        
+        #search-section, #home-section {
+            display: none;
+            padding: 20px;
+            background-color: #fdfdfd;
+            border-radius: 10px;
+            margin-top: 20px;
+            border: 1px solid #e0e0e0;
+        }
+        
+        #home-section {
+            display: block;
+            text-align: center;
+        }
+        
+        .search-box {
+            display: flex;
+            margin-bottom: 25px;
+        }
+        
+        #alcohol-input {
+            flex-grow: 1;
+            padding: 12px;
+            border: 2px solid #a8d8ea;
+            border-radius: 25px 0 0 25px;
+            font-size: 16px;
+            outline: none;
+        }
+        
+        #search-btn {
+            padding: 12px 20px;
+            background-color: #f8b195;
+            color: #2d4059;
+            border: none;
+            border-radius: 0 25px 25px 0;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        #search-btn:hover {
+            background-color: #f67280;
+        }
+        
+        #result {
+            padding: 20px;
+            background-color: #f0f7f4;
+            border-radius: 10px;
+            margin-top: 20px;
+            border-left: 5px solid #a8d8ea;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #a8d8ea;
+            color: #2d4059;
+            margin-top: 30px;
+            border-top: 3px solid #dd8460;
+        }
+        
+        h1, h2, h3 {
+            color: #2d4059;
+        }
+        
+        .welcome-icon {
+            font-size: 50px;
+            margin-bottom: 20px;
+            color: #f67280;
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                margin: 15px;
+                padding: 15px;
+            }
+            
+            .btn-container {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1></h1>APPCO²HOL</h1>
+
+        <p> ROMPE EL AMBIENTE NO TU HIGADO</p>
+    </header>
+    
+    <div class="container">
+        <div class="btn-container">
+            <button class="btn" id="home-btn">Inicio</button>
+            <button class="btn" id="search-btn-main">🔍 Buscar Bebida</button>
+        </div>
+        
+        <section id="home-section">
+            <div class="welcome-icon">🍷</div>
+            <h2>Bienvenido a la aplicacion de el alcohol</h2>
+            <p>Esta plataforma te ofrece información sobre diferentes tipos de bebidas alcohólicas y sus efectos en la salud.</p>
+            <p>Utiliza el botón <strong>"Buscar Bebida"</strong> para conocer detalles específicos sobre una bebida alcohólica.</p>
+            <p>Recuerda que el consumo responsable es importante para tu bienestar.</p>
+        </section>
+        
+        <section id="search-section">
+            <h2>🔍 Buscador de Bebidas Alcohólicas</h2>
+            <p>Ingresa el nombre de una bebida para conocer sus efectos en la salud:</p>
+            
+            <div class="search-box">
+                <input type="text" id="alcohol-input" placeholder="Ejemplo: cerveza, vino, vodka...">
+                <button id="search-btn">Buscar</button>
+            </div>
+            
+            <div id="result">
+                <p>Aquí aparecerá la informacion sobre la bebida que busques.</p>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <p>- </p>
+    </footer>
+    
+    <script>
+        // Mostrar/ocultar secciones
+        document.getElementById('home-btn').addEventListener('click', function() {
+            document.getElementById('home-section').style.display = 'block';
+            document.getElementById('search-section').style.display = 'none';
+            document.getElementById('home-btn').style.backgroundColor = '#f8b195';
+            document.getElementById('search-btn-main').style.backgroundColor = '#a8d8ea';
+        });
+        
+        document.getElementById('search-btn-main').addEventListener('click', function() {
+            document.getElementById('home-section').style.display = 'none';
+            document.getElementById('search-section').style.display = 'block';
+            document.getElementById('search-btn-main').style.backgroundColor = '#f8b195';
+            document.getElementById('home-btn').style.backgroundColor = '#a8d8ea';
+        });
+        
+        // Base de datos de bebidas y sus efectos
+        const alcoholData = {
+            'cerveza': {
+                nombre: '🍺 Cerveza',
+                info: ' Ingredientes: Los principales ingredientes de la cerveza son el Agua, la malta, el lúpulo y la levadura, aunque las cervezas artesanales incorporan otro tipo de ingrdientes que les aportan aromas,sabores y colores diferentes. Consumo en mexico: Segun datos del instituto Nacional de Estadística y Geografía ( INEGI , en 2020, el 65% de los méxicanos consumió cerveza en algun momento de su vida. La edad premedio de consumo de cerveza es de 17 años. Efectos negativos del consumo : El consumo excesivo de cerveza puede llevar a una serie de problemas fisicos y psicológicos que pueden afectar seriamente la calidad de vida. Alguno de ellos son * La capacidad para controlar los movimientosse ve afectada, * El razonamiento y la toma de desiciones se ven comprometidos, * El equilibrio y la coordinación tambien salen afectados  '
+            },
+            'vino': {
+                nombre: '🍷 Vino',
+                info: 'El vino ya formado es un líquido de dencidad algo menor que el agua, que tiene como componente básico la misma agua, pero además un gran número de otros componentes entre ellos destaca los alcoholes ( etílico y glicarol), ácidos ( tartánico,málico,acético,láctico,cítrico), taninos que tiene que ver con su olor y sabor, le dan consitenia y sabor astringente , complejos de vitaminas (B1,B2,B3,B6 y C),Azucares(Glucosa,Sacarosa), sales minerales (potasio,sodio,magnesio,fósforo,azufre y calcio),aligoelementos(flúor,yodo,plomo),proteinas,aminoácidos y centenares de sutancias volátiles o aromáticas. Tipos de vinos: TINTO: Rosados,ligeros,afrutados,no envejecidos,de cuerpo medio,concentrados,intensos de guarda especiales. ESPUMOSOS: ligeros,afrutados,intensos,finos,. ESPECIALES: Generosos,fermentación parcial,tostados. BLANCOS: ligeros y secos,secos y amplios,secos y cocentrados,aromaticos,dulces y licorosos. EFECTOS NEGATIVOS : Dependencia y adicción : el vino puede ser adictivo y causar dependencia en algunas personas . Problemas de salud mental: el consumo excesivo de vino puede aumentar el riesgo de depresión,ansiedad y otros problemas de salud mental. Enfermedades hepaticas : el consumo excesivo de vino puede causar daño al higado y aumentar el riesgo de enfermedades hepáticas.  .'
+            },
+            'vodka': {
+                nombre: '🥃 Vodka',
+                info: 'Ingredientes del vodka:Es un licor transparente y sin sabor,producido a aprtir de la fermentación y destilación de granos ,frutas o tubérculos. Ingredientes: Trigo,centeno,cebada,patatas,frutas (como manzanas o uvas) EFECTOS NEGATIVOS : Es importante recodrdar que el consumo excesivo de alcohol puede tenr consecuencias graves como daño hepático,problemas cardíacos y aumentaar el riesgo de accidentes o lesiones. VARIANTES DEL VODKA: vodka de trigo,vodka de centeno,vodka de frutas,vodka infusionado,vodka premium.'
+            },
+            'whisky': {
+                nombre: '🥃 Whisky',
+                info: ' Ingredientes: Es un licor espirituoso producido a partir de la fermentación y destilación de granos, como : Cebada,trigo,centeno,maiz. PORCENTAJE DE CONSUMO EN MEXICO : El 34% de los mexicanos de 18 a 65 años consumen whisky al menos una vez al mes. Efectos negativos del wisky: Daño hepático,Problemas cardíacos,cancer.'
+            },
+            'ron': {
+                nombre: '🍹 Ron',
+                info: 'Ingredientes : Es una bebida alcohólica elaborada a partir de la fermentación  y destilación de la meleza o el jugo de caña de azúcar. Efectos negativos: Puede varias dependiendo de la cantidad consumida y la tolerancia. ALgunos efectos son: Relajacion,euforia y la disminucion de la inhibición,intoxicación,perdida de coordinación y la resaca al dia siguiente. VARIANTES DEL RON: Ron blanco o plata, Ron dorado o ámbar,Ron  añejo,Ronagricola. .'
+            },
+            'tequila': {
+                nombre: '🍸 Tequila',
+                info: 'Ingredientes : se elabora principalmente a partir de agave azul, una planta suculenta que crece en la en la región de tequila, incluye piña el corazón de la planta y se fermenta para producir el alcohol. EFECTOS NEGATIVOS DEL TEQUILA: Daño en el hígado (cirrosis,hepatitis),problemas cardiovasculares,dependencia o adicción,ansiedad,depresión,aumento de riesgo de accidentes o lesiones. VARIANTES:blanco (plata),reposado,añejo,extra añejo.  .'
+            },
+            'champán': {
+                nombre: '🍾 Champán',
+                info: 'Ingredientes: La elección de las uvas es el primer paso en la creación de champagne,se utilizan tres variedades(Chardonnay,Pinot Noir y Pinot Meunier) depues de la selección de las uvas, el mostro obtenido se somete a una primera frmentación.Este proceso convierte los azúcares naturales de la uva en alcohol y produce un vino base con sabores frescos y aromáticos. Efectos negativos: un consumo diario puede aumentar el riesgo de enfermedades cardiovasculares, diabetes,obesidad,y problemas hepáticos.SIN embargo un consumo moderado de esta puede ayudar a reducir el riesgo de enfermedades cardícas.'
+            },
+            'sidra': {
+                nombre : 'sidra',
+                info: 'Ingredientes: Es una bebida alcohólica fabricada con el jugo dr la manzana o de la pera de baja graduación que varia entre el 2%, en el caso de la sidra doux francesa,hasta un máximo del 8% en volumen. la sidra posee entre el 2% de grado alcholico y el 8,5 %. Efectos negativos : Aumento de peso debido al alto contenido de azúcares y carbohidratos,problemas digestivos,como hinchzón,gasesy malestar estomacal,aumento del riesgo de enfrmedades cardiovasculares,deshidratación. '
+            }
+        };
+
+        // Función de búsqueda
+        document.getElementById('search-btn').addEventListener('click', function() {
+            const input = document.getElementById('alcohol-input').value.toLowerCase();
+            const resultDiv = document.getElementById('result');
+            
+            if (alcoholData[input]) {
+                resultDiv.innerHTML = `
+                    <h3>${alcoholData[input].nombre}</h3>
+                    <p>${alcoholData[input].info}</p>
+                    <p><strong>Recomendación:</strong> Consumir con moderación y siempre acompañado de alimentos.</p>
+                `;
+            } else {
+                resultDiv.innerHTML = `
+                    <p>No encontramos información sobre "<strong>${input}</strong>".</p>
+                    <p>Prueba con: cerveza, vino, vodka, whisky, ron, tequila o champán.</p>
+                `;
+            }
+        });
+        
+        // Permitir búsqueda con Enter
+        document.getElementById('alcohol-input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                document.getElementById('search-btn').click();
+            }
+        });
+    </script>
+</body>
+</html>
